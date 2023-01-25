@@ -18,7 +18,9 @@ app.use(express.static(path.join(__dirname, "public")));
 const io = socketio(server);
 
 const {connectedUsers, initializeChoices, userConnected, makeMove, moves, choices} = require("./util/users")
-const {rooms, createRoom, joinRoom, exitRoom} = require("./util/rooms")
+const {rooms, createRoom, joinRoom, exitRoom} = require("./util/rooms");
+const e = require("express");
+const { exitCode } = require("process");
 
 io.on("connection", socket => {
     socket.on("create-room", (roomId) => {
@@ -41,9 +43,12 @@ io.on("connection", socket => {
         }else{
             userConnected(socket.client.id);
             joinRoom(roomId, socket.client.id);
+            socket.join(roomId);
+
             socket.emit("room-joined", roomId);
             socket.emit("player-2-connected");
-            socket.join(roomId);
+            socket.broadcast.to(roomId).emit("player-2-connected");
+            initializeChoices(roomId);
         }
     })
 
@@ -63,6 +68,8 @@ io.on("connection", socket => {
         }else{
             userConnected(socket.client.id);
             joinRoom(roomId, socket.client.id);
+            socket.join(roomId);
+            
             socket.emit("room-joined", roomId);
             socket.emit("player-2-connected");
             socket.broadcast.to(roomId).emit("player-2-connected");
@@ -78,7 +85,7 @@ io.on("connection", socket => {
             let playerTwoChoice = choices[roomId][1];
 
             if(playerOneChoice === playerTwoChoice){
-                let message = "Both of you chose " + playerOneChoice + " . It's draw!";
+                let message = "Both of you chose " + playerOneChoice + ". It's draw!";
                 io.to(roomId).emit("draw", message);
                 
             }else if(moves[playerOneChoice] === playerTwoChoice){
