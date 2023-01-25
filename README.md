@@ -12,7 +12,7 @@
 <p>The game was originally created by Sam Kass with Karen Bryla. According to an interview with Kass, the series producers did not originally ask for permission to use the game, but Kass was officially referenced by Sheldon as the creator of the game during the "The Rothman Disintegration" episode.</p>
 <h6>Source: <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" targed="_blank">The Big Bang Theory Wiki</a></h6>
 <br>
-<h2><strong>Rules:</strong></h2>
+<h4><strong>Rules:</strong></h4>
 <ul>
   <li>Scissors cuts Paper</li>
   <li>Paper covers Rock</li>
