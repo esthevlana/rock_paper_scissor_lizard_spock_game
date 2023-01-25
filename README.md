@@ -10,6 +10,7 @@
 <p><em>Rock, Paper, Scissors, Lizard, Spock</em> is a game of chance that expands the traditional game of Rock, Paper, Scissors. It is first used to settle a dispute about what to watch on TV between Sheldon and Raj in "The Lizard-Spock Expansion".</p>
 <p>It is mentioned again in "The Rothman Disintegration", where Sheldon explains the rules to Penny and Barry Kripke.</p>
 <p>The game was originally created by Sam Kass with Karen Bryla. According to an interview with Kass, the series producers did not originally ask for permission to use the game, but Kass was officially referenced by Sheldon as the creator of the game during the "The Rothman Disintegration" episode.</p>
+<h6>Resource: <a href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock" targed="_blank">The Big Bang Theory Wiki</a></h6>
 <br>
 <h2><strong>Rules:</strong></h2>
 <ul>
