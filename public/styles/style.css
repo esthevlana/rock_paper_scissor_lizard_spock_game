@@ -89,6 +89,10 @@ body {
     display: none;
 }
 
+.gameplay-screen-1player {
+    display: none;
+}
+
 .wait-message {
     width: 600px;
     padding-top: 30px;

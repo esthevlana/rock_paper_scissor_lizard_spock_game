@@ -1,6 +1,10 @@
 const socket = io();
 
 //DOM elements
+//one player DOM element
+/* const openCreateOnePlayerBox = document.getElementById("open-create-oneplayer-box");
+const gameplayScreenOnePlayer = document.querySelector(".gameplay-screen-1player"); */
+
 const openCreateRoomBox = document.getElementById("open-create-room-box");
 const openJoinRoomBox = document.getElementById("open-join-room-box");
 const createRoomBox = document.getElementById("create-room-box");
@@ -31,6 +35,12 @@ const playerTwoTag = document.getElementById("player-2-tag");
 const winMessage = document.getElementById("win-message");
 
 //Game variables
+//one player variables
+/* let onePlayerChoice = "";
+let computerChoice = "";
+let onePlayerScore = 0;
+let computerScore = 0; */
+
 let canChoose = false;
 let playerOneConnected = false;
 let playerTwoIsConnected = false;
@@ -41,13 +51,22 @@ let roomId = "";
 let myScorePoints = 0;
 let enemyScorePoints = 0;
 
+
+/* openCreateOnePlayerBox.addEventListener("click", function(){
+    gameplayChoices.style.display = "none";
+    gameplayScreen.style.display = "none";
+    gameplayScreenOnePlayer.style.display = "block";
+}) */
+
 openCreateRoomBox.addEventListener("click", function(){
     gameplayChoices.style.display = "none";
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     createRoomBox.style.display = "block";
 })
 
 cancelCreateActionBtn.addEventListener("click", function(){
     gameplayChoices.style.display = "block";
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     createRoomBox.style.display = "none";
 })
 
@@ -62,11 +81,13 @@ createRoomBtn.addEventListener("click", function(){
 
 openJoinRoomBox.addEventListener("click", function(){
     gameplayChoices.style.display = "none";
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     joinBoxRoom.style.display = "block";
 })
 
 cancelJoinActionBtn.addEventListener("click", function(){
     gameplayChoices.style.display = "block";
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     joinBoxRoom.style.display = "none";
 })
 
@@ -140,6 +161,8 @@ socket.on("room-created", id => {
     setPlayerTag(1);
 
     startScreen.style.display = "none";
+    //oneplayer
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     gameplayScreen.style.display = "block";
 })
 
@@ -153,6 +176,8 @@ socket.on("room-joined", id => {
     setWaitMessage(false);
 
     startScreen.style.display = "none";
+    //oneplayer
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     gameplayScreen.style.display = "block";
 })
 
@@ -187,11 +212,11 @@ socket.on("draw", message => {
 
 socket.on("player-1-wins", ({myChoice, enemyChoice}) => {
     if(playerId === 1){
-        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". You win!";
+        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Yay! You win!";
         setWinningMessage(message);
         myScorePoints++;
     }else{
-        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Bazinga! You lose!";
+        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Oh no... You lose!";
         setWinningMessage(message);
         enemyScorePoints++;
     }
@@ -201,11 +226,11 @@ socket.on("player-1-wins", ({myChoice, enemyChoice}) => {
 
 socket.on("player-2-wins", ({myChoice, enemyChoice}) => {
     if(playerId === 2){
-        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". You win!";
+        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Yay! You win!";
         setWinningMessage(message);
         myScorePoints++;
     }else{
-        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Bazinga! You lose!";
+        let message = "You choose " + myChoice + " and the enemy choose " + enemyChoice + ". Oh no... You lose!";
         setWinningMessage(message);
         enemyScorePoints++;
     }
@@ -249,6 +274,8 @@ function reset(){
     startScreen.style.display = "block";
     gameplayChoices.style.display = "block";
     gameplayScreen.style.display = "none";
+    //oneplayer
+    /* gameplayScreenOnePlayer.style.display = "none"; */
     joinBoxRoom.style.display = "none";
     createRoomBox.style.display = "none";
     playerTwo.classList.remove("connected");
@@ -310,5 +337,5 @@ function setWinningMessage(message){
     setTimeout(() => {
         removeChoice(myChoice)
         winMessage.innerHTML = "";
-    }, 3500)
+    }, 9500)
 }
